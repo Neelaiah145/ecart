@@ -11,7 +11,6 @@
             align-items: center;
             height: 100vh;
         }
-
         .login-container {
             background-color: #fff;
             padding: 40px 30px;
@@ -19,9 +18,7 @@
             box-shadow: 0 4px 15px rgba(0,0,0,0.2);
             width: 350px;
         }
-
         h2 { text-align: center; margin-bottom: 30px; }
-
         input[type="email"], input[type="password"] {
             width: 100%;
             padding: 12px;
@@ -29,7 +26,6 @@
             border: 1px solid #ccc;
             border-radius: 5px;
         }
-
         button {
             width: 100%;
             padding: 12px;
@@ -40,14 +36,8 @@
             cursor: pointer;
             font-size: 16px;
         }
-
         button:hover { background-color: #45a049; }
-
-        .error-message {
-            color: red;
-            margin-bottom: 15px;
-            text-align: center;
-        }
+        .error-message { color: red; margin-bottom: 15px; text-align: center; }
     </style>
 </head>
 <body>
@@ -64,10 +54,10 @@
     <form method="POST" autocomplete="off">
         {% csrf_token %}
         <label>Email:</label>
-        <input type="email" name="email" value="" placeholder="Enter your email" required>
+        <input type="email" name="email" value="{{ email }}" placeholder="Enter your email" required>
 
         <label>Password:</label>
-        <input type="password" name="password" value="" placeholder="Enter your password" required>
+        <input type="password" name="password" value="{{ password }}" placeholder="Enter your password" required>
 
         <button type="submit">Login</button>
     </form>
