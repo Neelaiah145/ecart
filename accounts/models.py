@@ -7,4 +7,6 @@ class User(models.Model):
     password = models.CharField(max_length=100)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateField(auto_now=True)
+    is_admin = models.BooleanField(default=False)
+    
     

@@ -1,7 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
 from django.contrib.auth import logout
-from django.contrib.auth.decorators import login_required
 from .models import User
 
 def login(request):
@@ -11,7 +10,7 @@ def login(request):
         print("hello")
         try:
             user = User.objects.get(email=email, password=password)
-            # request.session["user_id"] = user.id
+            request.session["user_id"] = user.id
             return redirect('dashboard')
         except User.DoesNotExist:
             messages.error(request, "Invalid email or password")
@@ -33,5 +32,5 @@ def dashboard(request):
 
 
 def logout(request):
-    
+    request.session.flush() 
     return redirect('login') 
