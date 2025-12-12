@@ -14,7 +14,6 @@
             background-color: #f5f6fa;
         }
 
-        /* Sidebar */
         .sidebar {
             width: 240px;
             background: linear-gradient(180deg, #2c3e50, #1c2833);
@@ -58,7 +57,6 @@
             transform: scale(1.05);
         }
 
-        /* Main content */
         .main-content {
             flex: 1;
             padding: 25px;
@@ -66,7 +64,6 @@
             flex-direction: column;
         }
 
-        /* Top bar */
         .top-bar {
             display: flex;
             justify-content: flex-end;
@@ -77,9 +74,9 @@
             border-radius: 10px;
             box-shadow: 0 2px 8px rgba(0,0,0,0.1);
             margin-bottom: 20px;
+            position: relative;
         }
 
-        /* User icon */
         .user-icon {
             width: 45px;
             height: 45px;
@@ -95,7 +92,6 @@
             box-shadow: 0 2px 6px rgba(0,0,0,0.2);
         }
 
-       
         .dropdown {
             display: none;
             position: absolute;
@@ -106,12 +102,6 @@
             overflow: hidden;
             min-width: 150px;
             box-shadow: 0px 4px 12px rgba(0,0,0,0.2);
-            animation: fadeDown 0.2s ease-in-out;
-        }
-
-        @keyframes fadeDown {
-            from { opacity: 0; transform: translateY(-10px); }
-            to { opacity: 1; transform: translateY(0); }
         }
 
         .dropdown button {
@@ -121,16 +111,13 @@
             border: none;
             color: white;
             font-weight: bold;
-            letter-spacing: 0.5px;
             cursor: pointer;
-            transition: 0.2s;
         }
 
         .dropdown button:hover {
             background-color: #c0392b;
         }
 
-        /* Welcome text */
         .welcome {
             margin-top: 80px;
             text-align: center;
@@ -142,12 +129,8 @@
 </head>
 <body>
 
-    <!-- Sidebar -->
     <div class="sidebar">
-        <!-- ⭐ Replace this image with your own file -->
         <img src="/static/images/profile.jpg" alt="Profile Image">
-        <!-- Example: /media/profile/user1.jpg or https://yourdomain.com/image.jpg -->
-
         <h2>My App</h2>
         <a href="#">Dashboard</a>
         <a href="#">Cart</a>
@@ -155,13 +138,10 @@
         <a href="#">Ads</a>
     </div>
 
-    <!-- Main content -->
     <div class="main-content">
-
-        <!-- Top bar -->
         <div class="top-bar">
             <div class="user-icon" id="userIcon">
-                {{ user.name|slice:":1" }}
+                {{ user.username|slice:":1" }}
             </div>
 
             <div class="dropdown" id="dropdownMenu">
@@ -172,9 +152,8 @@
             </div>
         </div>
 
-        <!-- Welcome message -->
         <div class="welcome">
-            Welcome, {{ user.name }}
+            Welcome, {{ user.username }}!
         </div>
     </div>
 

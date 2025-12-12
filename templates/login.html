@@ -27,7 +27,7 @@
             border-radius: 5px;
         }
         button {
-            width: 25%;
+            width: 100%;
             padding: 12px;
             background-color: #4CAF50;
             color: white;
@@ -35,8 +35,6 @@
             border-radius: 5px;
             cursor: pointer;
             font-size: 16px;
-            text-align:center;
-           
         }
         button:hover { background-color: #45a049; }
         .error-message { color: red; margin-bottom: 15px; text-align: center; }
@@ -53,13 +51,14 @@
         {% endfor %}
     {% endif %}
 
-    <form method="POST" autocomplete="off">
+    <form method="POST">
         {% csrf_token %}
+        
         <label>Email:</label>
-        <input type="email" name="email" value="{{ email }}" placeholder="Enter your email" >
+        <input type="email" name="email" placeholder="Enter your email">
 
         <label>Password:</label>
-        <input type="password" name="password" value="{{ password }}" placeholder="Enter your password" >
+        <input type="password" name="password" placeholder="Enter your password">
 
         <button type="submit">Login</button>
     </form>
